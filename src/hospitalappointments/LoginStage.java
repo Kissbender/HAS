@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author ofentse
+ * @author ofentse and moile
  */
 public class LoginStage extends Application {
     
