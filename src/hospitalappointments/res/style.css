@@ -1,0 +1,221 @@
+
+.root {
+    -fx-font-family: "Roboto Medium";
+    
+    P_DARK: #00636b;
+    PRIMARY: #009199;
+    P_LIGHT: #53c2ca;
+}
+
+
+.title{
+    
+    -fx-font-size: 18px;
+    -fx-text-fill:PRIMARY;
+}
+
+/*******************************************************************************
+JFX Default Tab pane
+/******************************************************************************/
+.tab-pane {
+    -fx-tab-min-height: 60px;
+    -fx-tab-max-height: 60px;
+    -fx-tab-min-width: 120px;
+    
+}
+
+
+.tab-pane .headers-region {
+    -fx-padding:0;
+}
+
+.tab-pane .tab-header-background {
+    -fx-padding: 0;
+    -fx-background-color: P_DARK;
+    
+}
+
+
+.tab-pane .tab-label  {
+    -fx-content-display: TOP;
+    -fx-graphic-text-gap: 2;
+    -fx-alignment: CENTER;
+    -fx-font: 12px "Roboto Regular";
+    -fx-text-fill: whitesmoke;
+}
+
+
+.tab-pane .tab-header-area > .headers-region > .tab{
+    -fx-border-radius:0;
+    -fx-background-radius:0;
+    -fx-cursor:hand;
+    -fx-focus-color:transparent;
+    -fx-background-color: PRIMARY;
+}
+
+.tab-pane .tab-header-area > .headers-region > .tab:hover,
+.tab-pane .tab-header-area > .headers-region > .tab:pressed,
+.tab-pane .tab-header-area > .headers-region > .tab:selected{
+    -fx-background-color: P_LIGHT;
+}
+
+.tab-pane .tab-header-area > .headers-region > .tab:selected .tab-label{
+    -fx-font-weight: bold;
+}
+
+
+/*******************************************************************************
+FORM
+/******************************************************************************/
+
+.form{
+    -fx-padding:10;
+    -fx-alignment:TOP_CENTER;
+}
+
+.form .label{
+    -fx-text-fill:#29434e;
+    -fx-font-size:12px;
+    -fx-font-weight:bold;
+}
+
+
+
+/*******************************************************************************
+Custom button
+/******************************************************************************/
+
+.toolbar{
+    -fx-padding:2;
+    -fx-border-color:#cfd8dc;
+    -fx-border-width:1 0 1 0;
+}
+
+
+/*******************************************************************************
+Custom button
+/******************************************************************************/
+.custom-button{
+    -fx-text-fill:#fff;
+    -fx-cursor:hand;
+    -fx-background-color:PRIMARY;
+    -fx-border-radius:0;
+    -fx-background-radius:0;
+    -fx-focus-color:transparent;
+}
+
+.custom-button:hover, .custom-button:pressed{
+    -fx-background-color:P_LIGHT;
+}
+
+
+/*******************************************************************************
+Appointment date
+/******************************************************************************/
+
+.appointment-button{
+    -fx-cursor:hand;
+    -fx-background-color:#00b0bb;
+    -fx-border-radius:0;
+    -fx-background-radius:0;
+    -fx-focus-color:transparent;
+}
+
+.appointment-button .label{
+    -fx-text-fill:#fff;
+    -fx-font-size:14px;
+}
+
+.appointment-button .name{
+    -fx-font-size:18px;
+}
+
+.appointment-button:hover, .appointment-button:pressed{
+    -fx-background-color:#00e3ed;
+}
+
+
+/*******************************************************************************
+Table view
+/******************************************************************************/
+
+.table-view{
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+}
+
+.table-cell{     
+    -fx-border-insets: 0;
+    -fx-border-width:0 0 .2 0; 
+}
+
+
+.table-view:focused .table-row-cell:filled:selected, 
+.table-view:row-selection .table-row-cell:filled:hover:selected {   
+    -fx-background-color:   linear-gradient(to bottom,
+                                derive(P_LIGHT, -4%),
+                                derive(P_LIGHT, -1%),
+                                derive(P_LIGHT, 0%),
+                                derive(P_LIGHT, -1%),
+                                derive(P_LIGHT, -6%)
+                              );
+    -fx-background-insets: 0, 1 1 1 1 0;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill: PRIMARY;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor:hand;
+}
+
+
+.table-view .column-header, .table-view .filler{  
+    -fx-size: 35;
+    -fx-border-color: transparent;    
+    -fx-background-color:   linear-gradient(to bottom,
+                                derive(#fafafa, -4%),
+                                derive(#fafafa, -1%),
+                                derive(#fafafa, 0%),
+                                derive(#fafafa, -1%),
+                                derive(#fafafa, -6%)
+                              );
+    -fx-border-color:  #cfd8dc;
+    -fx-border-width: 0 0 1 0;
+}
+
+
+/*******************************************************************************
+List view
+/******************************************************************************/
+.mainList .list-view{
+    -fx-border-color:transparent;
+    -fx-padding:0;
+    -fx-max-width: 200px;
+    -fx-pref-width:200px;
+    -fx-focus-color:transparent;
+}
+
+.mainList .list-cell {
+    -fx-max-height: 35px;
+    -fx-pref-height:35px;
+    -fx-padding:0;
+    -fx-background-insets: 0.0;
+    -fx-text-fill: #102027;
+    -fx-font-size: 14;
+}
+
+.mainList .list-cell:hover{
+    -fx-cursor:hand;
+    -fx-text-fill: #fff;
+    -fx-background-color: PRIMARY;
+    -fx-border-color: PRIMARY;
+}
+
+
+.mainList .list-cell:selected {
+    -fx-text-fill: #fff;
+    -fx-background-color: PRIMARY;
+    -fx-border-color: PRIMARY;
+}
