@@ -2,9 +2,9 @@
 .root {
     -fx-font-family: "Roboto Medium";
     
-    P_DARK: #00636b;
-    PRIMARY: #009199;
-    P_LIGHT: #53c2ca;
+    P_DARK: #b61827;
+    PRIMARY: #ef5350;
+    P_LIGHT: #ff867c;
 }
 
 
