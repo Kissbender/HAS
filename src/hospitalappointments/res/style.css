@@ -2,17 +2,17 @@
 .root {
     -fx-font-family: "Roboto Medium";
     
-    P_DARK: #b61827;
-    PRIMARY: #ef5350;
-    P_LIGHT: #ff867c;
+    P_DARK: #006064;
+    PRIMARY: #00838F;
+    P_LIGHT: #00BCD4;
 }
 
-
-.title{
-    
-    -fx-font-size: 18px;
-    -fx-text-fill:PRIMARY;
+.login-window{
+    -fx-background-image:url('hs1.jpg');
+    -fx-background-position:center right;
+    -fx-background-repeat: no-repeat;
 }
+
 
 /*******************************************************************************
 JFX Default Tab pane
@@ -24,7 +24,6 @@ JFX Default Tab pane
     
 }
 
-
 .tab-pane .headers-region {
     -fx-padding:0;
 }
@@ -32,9 +31,7 @@ JFX Default Tab pane
 .tab-pane .tab-header-background {
     -fx-padding: 0;
     -fx-background-color: P_DARK;
-    
 }
-
 
 .tab-pane .tab-label  {
     -fx-content-display: TOP;
@@ -43,7 +40,6 @@ JFX Default Tab pane
     -fx-font: 12px "Roboto Regular";
     -fx-text-fill: whitesmoke;
 }
-
 
 .tab-pane .tab-header-area > .headers-region > .tab{
     -fx-border-radius:0;
@@ -63,75 +59,549 @@ JFX Default Tab pane
     -fx-font-weight: bold;
 }
 
-
 /*******************************************************************************
-FORM
+Bootstrap button
 /******************************************************************************/
 
-.form{
-    -fx-padding:10;
-    -fx-alignment:TOP_CENTER;
+
+.btn, .dialog-pane .button {
+  -fx-font-family: "Oxygen Regular"; 
+  -fx-font-weight: normal;
+  -fx-text-alignment: center;
+  -fx-cursor: default;
+  -fx-border-color: transparent;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-background-insets: 0, 0, -1, 0;
+  -fx-padding: 5px 10px 5px 10px;
+  -fx-font-size: 14px;
+  -fx-border-radius: 4px;
+  -fx-background-radius: 4px;
+  -fx-min-width: 80;
+  -fx-cursor:hand;
 }
 
-.form .label{
-    -fx-text-fill:#29434e;
-    -fx-font-size:12px;
-    -fx-font-weight:bold;
+
+.btn:hover, .btn:focused, .btn.focused {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
 }
 
+
+.btn:pressed, .btn.pressed {
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.125), 5px, 0, 0, 3px);
+}
+
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  -fx-cursor: wait;
+  -fx-opacity: 0.65;
+}
+
+
+
+.btn-default {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #fff;
+  -fx-border-color: #ccc;
+}
+
+
+.btn-default:focused, .btn-default.focused {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #e6e6e6;
+  -fx-border-color: #8c8c8c;
+}
+.btn-default:hover {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #e6e6e6;
+  -fx-border-color: #adadad;
+}
+.btn-default:pressed, .btn-default.pressed, .open > .btn-default.dropdown-toggle {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #e6e6e6;
+  -fx-border-color: #adadad;
+}
+.btn-default:pressed:hover, .btn-default:pressed:focused, .btn-default:pressed.focused, .btn-default.pressed:hover, .btn-default.pressed:focused, .btn-default.pressed.focused, .open > .btn-default.dropdown-toggle:hover, .open > .btn-default.dropdown-toggle:focused, .open > .btn-default.dropdown-toggle.focused {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #d4d4d4;
+  -fx-border-color: #8c8c8c;
+}
+.btn-default:selected, .btn-default.selected {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #e6e6e6;
+  -fx-border-color: #adadad;
+}
+.btn-default:selected:hover, .btn-default:selected:focused, .btn-default:selected.focused, .btn-default.selected:hover, .btn-default.selected:focused, .btn-default.selected.focused {
+  -fx-text-fill: #333;
+  -fx-fill: #333;
+  -fx-background-color: #d4d4d4;
+  -fx-border-color: #8c8c8c;
+}
+.btn-default:pressed, .btn-default.pressed, .open > .btn-default.dropdown-toggle {
+  background-image: none;
+}
+.btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focused, .btn-default.disabled.focused, .btn-default.disabled:pressed, .btn-default.disabled.pressed, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focused, .btn-default[disabled].focused, .btn-default[disabled]:pressed, .btn-default[disabled].pressed, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focused, fieldset[disabled] .btn-default.focused, fieldset[disabled] .btn-default:pressed, fieldset[disabled] .btn-default.pressed {
+  -fx-background-color: #fff;
+  -fx-border-color: #ccc;
+}
+.btn-default .badge {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #333;
+}
+
+
+
+
+
+
+
+.btn-primary , .dialog-pane .button{
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #337ab7;
+  -fx-border-color: #2e6da4;
+}
+.btn-primary:focused, .dialog-pane .button:focused, .dialog-pane .button.focused, .btn-primary.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #286090;
+  -fx-border-color: #122b40;
+}
+.btn-primary:hover, .dialog-pane .button:hover {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #286090;
+  -fx-border-color: #204d74;
+}
+.btn-primary:pressed, .btn-primary.pressed, .open > .btn-primary.dropdown-toggle {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #286090;
+  -fx-border-color: #204d74;
+}
+.btn-primary:pressed:hover, .btn-primary:pressed:focused, .btn-primary:pressed.focused, .btn-primary.pressed:hover, .btn-primary.pressed:focused, .btn-primary.pressed.focused, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle:focused, .open > .btn-primary.dropdown-toggle.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #204d74;
+  -fx-border-color: #122b40;
+}
+.btn-primary:selected, .btn-primary.selected {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #286090;
+  -fx-border-color: #204d74;
+}
+.btn-primary:selected:hover, .btn-primary:selected:focused, .btn-primary:selected.focused, .btn-primary.selected:hover, .btn-primary.selected:focused, .btn-primary.selected.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #204d74;
+  -fx-border-color: #122b40;
+}
+.btn-primary:pressed, .btn-primary.pressed, .open > .btn-primary.dropdown-toggle {
+  background-image: none;
+}
+.btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focused, .btn-primary.disabled.focused, .btn-primary.disabled:pressed, .btn-primary.disabled.pressed, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focused, .btn-primary[disabled].focused, .btn-primary[disabled]:pressed, .btn-primary[disabled].pressed, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focused, fieldset[disabled] .btn-primary.focused, fieldset[disabled] .btn-primary:pressed, fieldset[disabled] .btn-primary.pressed {
+  -fx-background-color: #337ab7;
+  -fx-border-color: #2e6da4;
+}
+.btn-primary .badge {
+  -fx-text-fill: #337ab7;
+  -fx-fill: #337ab7;
+  -fx-background-color: #fff;
+}
+
+
+
+
+
+.btn-success {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #5cb85c;
+  -fx-border-color: #4cae4c;
+}
+.btn-success:focused, .btn-success.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #449d44;
+  -fx-border-color: #255625;
+}
+.btn-success:hover {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #449d44;
+  -fx-border-color: #398439;
+}
+.btn-success:pressed, .btn-success.pressed, .open > .btn-success.dropdown-toggle {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #449d44;
+  -fx-border-color: #398439;
+}
+.btn-success:pressed:hover, .btn-success:pressed:focused, .btn-success:pressed.focused, .btn-success.pressed:hover, .btn-success.pressed:focused, .btn-success.pressed.focused, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focused, .open > .btn-success.dropdown-toggle.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #398439;
+  -fx-border-color: #255625;
+}
+.btn-success:selected, .btn-success.selected {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #449d44;
+  -fx-border-color: #398439;
+}
+.btn-success:selected:hover, .btn-success:selected:focused, .btn-success:selected.focused, .btn-success.selected:hover, .btn-success.selected:focused, .btn-success.selected.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #398439;
+  -fx-border-color: #255625;
+}
+.btn-success:pressed, .btn-success.pressed, .open > .btn-success.dropdown-toggle {
+  background-image: none;
+}
+.btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focused, .btn-success.disabled.focused, .btn-success.disabled:pressed, .btn-success.disabled.pressed, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focused, .btn-success[disabled].focused, .btn-success[disabled]:pressed, .btn-success[disabled].pressed, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focused, fieldset[disabled] .btn-success.focused, fieldset[disabled] .btn-success:pressed, fieldset[disabled] .btn-success.pressed {
+  -fx-background-color: #5cb85c;
+  -fx-border-color: #4cae4c;
+}
+.btn-success .badge {
+  -fx-text-fill: #5cb85c;
+  -fx-fill: #5cb85c;
+  -fx-background-color: #fff;
+}
+
+.btn-info {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #5bc0de;
+  -fx-border-color: #46b8da;
+  -fx-cursor:hand;
+}
+.btn-info:focused, .btn-info.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #31b0d5;
+  -fx-border-color: #1b6d85;
+}
+.btn-info:hover {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #31b0d5;
+  -fx-border-color: #269abc;
+}
+.btn-info:pressed, .btn-info.pressed, .open > .btn-info.dropdown-toggle {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #31b0d5;
+  -fx-border-color: #269abc;
+}
+.btn-info:pressed:hover, .btn-info:pressed:focused, .btn-info:pressed.focused, .btn-info.pressed:hover, .btn-info.pressed:focused, .btn-info.pressed.focused, .open > .btn-info.dropdown-toggle:hover, .open > .btn-info.dropdown-toggle:focused, .open > .btn-info.dropdown-toggle.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #269abc;
+  -fx-border-color: #1b6d85;
+}
+.btn-info:selected, .btn-info.selected {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #31b0d5;
+  -fx-border-color: #269abc;
+}
+.btn-info:selected:hover, .btn-info:selected:focused, .btn-info:selected.focused, .btn-info.selected:hover, .btn-info.selected:focused, .btn-info.selected.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #269abc;
+  -fx-border-color: #1b6d85;
+}
+.btn-info:pressed, .btn-info.pressed, .open > .btn-info.dropdown-toggle {
+  background-image: none;
+}
+.btn-info.disabled, .btn-info.disabled:hover, .btn-info.disabled:focused, .btn-info.disabled.focused, .btn-info.disabled:pressed, .btn-info.disabled.pressed, .btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:focused, .btn-info[disabled].focused, .btn-info[disabled]:pressed, .btn-info[disabled].pressed, fieldset[disabled] .btn-info, fieldset[disabled] .btn-info:hover, fieldset[disabled] .btn-info:focused, fieldset[disabled] .btn-info.focused, fieldset[disabled] .btn-info:pressed, fieldset[disabled] .btn-info.pressed {
+  -fx-background-color: #5bc0de;
+  -fx-border-color: #46b8da;
+}
+.btn-info .badge {
+  -fx-text-fill: #5bc0de;
+  -fx-fill: #5bc0de;
+  -fx-background-color: #fff;
+}
+
+.btn-warning {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #f0ad4e;
+  -fx-border-color: #eea236;
+  -fx-cursor:hand;
+}
+.btn-warning:focused, .btn-warning.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ec971f;
+  -fx-border-color: #985f0d;
+}
+.btn-warning:hover {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ec971f;
+  -fx-border-color: #d58512;
+}
+.btn-warning:pressed, .btn-warning.pressed, .open > .btn-warning.dropdown-toggle {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ec971f;
+  -fx-border-color: #d58512;
+}
+.btn-warning:pressed:hover, .btn-warning:pressed:focused, .btn-warning:pressed.focused, .btn-warning.pressed:hover, .btn-warning.pressed:focused, .btn-warning.pressed.focused, .open > .btn-warning.dropdown-toggle:hover, .open > .btn-warning.dropdown-toggle:focused, .open > .btn-warning.dropdown-toggle.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #d58512;
+  -fx-border-color: #985f0d;
+}
+.btn-warning:selected, .btn-warning.selected {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ec971f;
+  -fx-border-color: #d58512;
+}
+.btn-warning:selected:hover, .btn-warning:selected:focused, .btn-warning:selected.focused, .btn-warning.selected:hover, .btn-warning.selected:focused, .btn-warning.selected.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #d58512;
+  -fx-border-color: #985f0d;
+}
+.btn-warning:pressed, .btn-warning.pressed, .open > .btn-warning.dropdown-toggle {
+  background-image: none;
+}
+.btn-warning.disabled, .btn-warning.disabled:hover, .btn-warning.disabled:focused, .btn-warning.disabled.focused, .btn-warning.disabled:pressed, .btn-warning.disabled.pressed, .btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:focused, .btn-warning[disabled].focused, .btn-warning[disabled]:pressed, .btn-warning[disabled].pressed, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning:hover, fieldset[disabled] .btn-warning:focused, fieldset[disabled] .btn-warning.focused, fieldset[disabled] .btn-warning:pressed, fieldset[disabled] .btn-warning.pressed {
+  -fx-background-color: #f0ad4e;
+  -fx-border-color: #eea236;
+}
+.btn-warning .badge {
+  -fx-text-fill: #f0ad4e;
+  -fx-fill: #f0ad4e;
+  -fx-background-color: #fff;
+}
+
+.btn-danger {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #d9534f;
+  -fx-border-color: #d43f3a;
+  -fx-cursor:hand;
+}
+.btn-danger:focused, .btn-danger.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #c9302c;
+  -fx-border-color: #761c19;
+}
+.btn-danger:hover {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #c9302c;
+  -fx-border-color: #ac2925;
+}
+.btn-danger:pressed, .btn-danger.pressed, .open > .btn-danger.dropdown-toggle {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #c9302c;
+  -fx-border-color: #ac2925;
+}
+.btn-danger:pressed:hover, .btn-danger:pressed:focused, .btn-danger:pressed.focused, .btn-danger.pressed:hover, .btn-danger.pressed:focused, .btn-danger.pressed.focused, .open > .btn-danger.dropdown-toggle:hover, .open > .btn-danger.dropdown-toggle:focused, .open > .btn-danger.dropdown-toggle.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ac2925;
+  -fx-border-color: #761c19;
+}
+.btn-danger:selected, .btn-danger.selected {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #c9302c;
+  -fx-border-color: #ac2925;
+}
+.btn-danger:selected:hover, .btn-danger:selected:focused, .btn-danger:selected.focused, .btn-danger.selected:hover, .btn-danger.selected:focused, .btn-danger.selected.focused {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #ac2925;
+  -fx-border-color: #761c19;
+}
+.btn-danger:pressed, .btn-danger.pressed, .open > .btn-danger.dropdown-toggle {
+  background-image: none;
+}
+.btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focused, .btn-danger.disabled.focused, .btn-danger.disabled:pressed, .btn-danger.disabled.pressed, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focused, .btn-danger[disabled].focused, .btn-danger[disabled]:pressed, .btn-danger[disabled].pressed, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focused, fieldset[disabled] .btn-danger.focused, fieldset[disabled] .btn-danger:pressed, fieldset[disabled] .btn-danger.pressed {
+  -fx-background-color: #d9534f;
+  -fx-border-color: #d43f3a;
+}
+.btn-danger .badge {
+  -fx-text-fill: #d9534f;
+  -fx-fill: #d9534f;
+  -fx-background-color: #fff;
+}
+
+.btn-lg {
+  -fx-padding: 10px 16px 10px 16px;
+  -fx-font-size: 18px;
+  -fx-border-radius: 6px;
+  -fx-background-radius: 6px;
+  -fx-cursor:hand;
+}
+
+.btn-sm {
+  -fx-padding: 5px 10px 5px 10px;
+  -fx-font-size: 12px;
+  -fx-border-radius: 3px;
+  -fx-background-radius: 3px;
+  -fx-cursor:hand;
+}
+
+.btn-xs {
+  -fx-padding: 1px 5px 1px 5px;
+  -fx-font-size: 12px;
+  -fx-border-radius: 3px;
+  -fx-background-radius: 3px;
+  -fx-cursor:hand;
+}
+
+.btn-block {
+  width: 100%;
+}
 
 
 /*******************************************************************************
-Custom button
+Custom Panel
 /******************************************************************************/
 
-.toolbar{
-    -fx-padding:2;
-    -fx-border-color:#cfd8dc;
-    -fx-border-width:1 0 1 0;
+
+.panel {
+  -fx-background-color: #fff;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-border-color: transparent;
+  -fx-border-radius: 0px;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.05), 1px, 0, 0, 1px);
+}
+
+.panel-body {
+  -fx-padding: 5px;
+}
+
+.panel-heading {
+  -fx-padding: 10px 15px;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-border-color: transparent;
+  -fx-border-radius: 0px, 0, 0, 0;
+}
+
+.panel-title {
+  -fx-font-size: 18px;
+  -fx-font-family:"Oxygen Regular";
+}
+
+.panel-footer {
+  -fx-padding: 10px 15px;
+  -fx-background-color: #f5f5f5;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-border-color: #ddd;
+  -fx-border-radius: 0, 0, 3px, 0;
+}
+
+.panel-default {
+  -fx-border-color: #ddd;
+}
+.panel-default > .panel-heading {
+  -fx-text-fill: #333333;
+  -fx-fill: #333333;
+  -fx-background-color: #f5f5f5;
+  -fx-border-color: #ddd;
+}
+.panel-default > .panel-heading .label {
+  -fx-text-fill: #333333;
+  -fx-fill: #333333;
+}
+.panel-default > .panel-heading .badge {
+  -fx-text-fill: #f5f5f5;
+  -fx-fill: #f5f5f5;
+  -fx-background-color: #333333;
 }
 
 
-/*******************************************************************************
-Custom button
-/******************************************************************************/
-.custom-button{
-    -fx-text-fill:#fff;
-    -fx-cursor:hand;
-    -fx-background-color:PRIMARY;
-    -fx-border-radius:0;
-    -fx-background-radius:0;
-    -fx-focus-color:transparent;
+
+
+
+.panel-primary {
+  -fx-border-color: #337ab7;
+}
+.panel-primary > .panel-heading {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+  -fx-background-color: #337ab7;
+  -fx-border-color: #337ab7;
+}
+.panel-primary > .panel-heading .label {
+  -fx-text-fill: #fff;
+  -fx-fill: #fff;
+}
+.panel-primary > .panel-heading .badge {
+  -fx-text-fill: #337ab7;
+  -fx-fill: #337ab7;
+  -fx-background-color: #fff;
 }
 
-.custom-button:hover, .custom-button:pressed{
-    -fx-background-color:P_LIGHT;
+
+
+
+
+.panel-success {
+  -fx-border-color: #d6e9c6;
+}
+.panel-success > .panel-heading {
+  -fx-text-fill: #3c763d;
+  -fx-fill: #3c763d;
+  -fx-background-color: #dff0d8;
+  -fx-border-color: #d6e9c6;
+}
+.panel-success > .panel-heading .label {
+  -fx-text-fill: #3c763d;
+  -fx-fill: #3c763d;
+}
+.panel-success > .panel-heading .badge {
+  -fx-text-fill: #dff0d8;
+  -fx-fill: #dff0d8;
+  -fx-background-color: #3c763d;
 }
 
 
-/*******************************************************************************
-Appointment date
-/******************************************************************************/
 
-.appointment-button{
-    -fx-cursor:hand;
-    -fx-background-color:#00b0bb;
-    -fx-border-radius:0;
-    -fx-background-radius:0;
-    -fx-focus-color:transparent;
+
+
+
+
+.panel-info {
+  -fx-border-color: #00cccc;
 }
-
-.appointment-button .label{
-    -fx-text-fill:#fff;
-    -fx-font-size:14px;
+.panel-info > .panel-heading {
+  -fx-text-fill: #ffffff;
+  -fx-fill: #ffffff;
+  -fx-background-color: #00cccc;
+  -fx-border-color: #00cccc;
 }
-
-.appointment-button .name{
-    -fx-font-size:18px;
+.panel-info > .panel-heading .label {
+  -fx-text-fill: #ffffff;
+  -fx-fill: #ffffff;
 }
-
-.appointment-button:hover, .appointment-button:pressed{
-    -fx-background-color:#00e3ed;
+.panel-info > .panel-heading .badge {
+  -fx-text-fill: #d9edf7;
+  -fx-fill: #d9edf7;
+  -fx-background-color: #31708f;
 }
 
 
@@ -165,7 +635,7 @@ Table view
 }
 
 .table-view .column-header .label{
-    -fx-text-fill: PRIMARY;
+    -fx-text-fill: #263238;
     -fx-alignment: CENTER_LEFT;
     -fx-cursor:hand;
 }
@@ -189,33 +659,94 @@ Table view
 /*******************************************************************************
 List view
 /******************************************************************************/
-.mainList .list-view{
-    -fx-border-color:transparent;
-    -fx-padding:0;
-    -fx-max-width: 200px;
-    -fx-pref-width:200px;
-    -fx-focus-color:transparent;
-}
 
-.mainList .list-cell {
-    -fx-max-height: 35px;
-    -fx-pref-height:35px;
-    -fx-padding:0;
+.jfx-custom-list{
     -fx-background-insets: 0.0;
-    -fx-text-fill: #102027;
-    -fx-font-size: 14;
+    -jfx-cell-horizontal-margin: 0.0;
+    -jfx-cell-vertical-margin: 5.0;
+    -jfx-vertical-gap: 10.0;
+    -fx-padding:0;
+    -fx-max-width: 250px;
+    -fx-pref-width:250px;    
+    -fx-background-color:#F4F4F4;
+    -fx-border-color:#F4F4F4;
 }
 
-.mainList .list-cell:hover{
-    -fx-cursor:hand;
-    -fx-text-fill: #fff;
-    -fx-background-color: PRIMARY;
-    -fx-border-color: PRIMARY;
+.jfx-custom-list .jfx-list-cell {
+    -fx-background-insets: 0.0;
+    -fx-background-color:#F4F4F4;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-width:0 0 0 2;
+    -fx-border-color:#F4F4F4;
+    -fx-padding:8 2 8 4;
+    
+    -fx-font-size: 13;
+    -fx-text-fill: #222222;
 }
 
 
-.mainList .list-cell:selected {
-    -fx-text-fill: #fff;
-    -fx-background-color: PRIMARY;
-    -fx-border-color: PRIMARY;
+.jfx-custom-list .jfx-list-cell:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #26C6DA;
+    -fx-border-color: #00838F;
+    -fx-text-fill:#ffffff;
+}
+
+
+.jfx-custom-list .jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: #fff;
+}
+
+
+.jfx-custom-list .jfx-list-cell:selected {
+    -fx-background-color: #26C6DA;
+    -fx-border-color: #00838F;
+    -fx-text-fill:#ffffff;
+}
+
+/*******************************************************************************
+JFX LIST MENU
+/******************************************************************************/
+
+.jfx-app-list{
+    -fx-background-insets: 0.0;
+    -jfx-cell-horizontal-margin: 0.0;
+    -jfx-cell-vertical-margin: 5.0;
+    -jfx-vertical-gap: 10.0;
+    -fx-padding:0;    
+    -fx-background-color:#F4F4F4;
+    -fx-border-color:#F4F4F4;
+}
+
+.jfx-app-list .jfx-list-cell {
+    -fx-background-insets: 0.0;
+    -fx-background-color:#F4F4F4;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-width:0 0 0 0;
+    -fx-border-color:#F4F4F4;
+    -fx-padding:8 2 8 4;
+    -fx-font-size: 13;
+    -fx-text-fill: #222222;
+    -fx-cursor: hand;
+}
+
+.jfx-app-list .jfx-list-cell .label {
+    -fx-font-size: 13;
+    -fx-text-fill: #222222;
+}
+
+
+
+.jfx-app-list .jfx-list-cell:hover{
+    -fx-background-color: #ECEFF1;
+}
+
+
+.jfx-app-list .jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: #fff;
+}
+
+
+.jfx-app-list .jfx-list-cell:selected {
+    -fx-background-color: #ECEFF1;
 }

@@ -1,5 +1,9 @@
 package hospitalappointments;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -39,50 +43,45 @@ public class UpdatePatient extends Stage{
         root.setLeft(left);
         
         GridPane grid = new GridPane();
-        grid.getStyleClass().add("form");
-        grid.setVgap(5);
+        grid.setStyle("-fx-padding: 20");
+        grid.setAlignment(Pos.CENTER);
+        grid.setVgap(20);
         grid.setHgap(5);
         
-        
-        TextField fname = new TextField();
-        fname.setPrefWidth(280);
+        JFXTextField fname = new JFXTextField();
+        fname.setPrefWidth(450);
+        fname.setLabelFloat(true);
         fname.setPromptText("First Name");
+        grid.add(fname, 0, 0);
         
-        grid.add(new Label("First Name: "), 0, 0);
-        grid.add(fname, 1, 0);
-        
-        TextField lname = new TextField();
-        lname.setPrefWidth(280);
+        JFXTextField lname = new JFXTextField();
+        lname.setPrefWidth(450);
+        lname.setLabelFloat(true);
         lname.setPromptText("Last Name");
+        grid.add(lname, 0, 1);
         
-        grid.add(new Label("Last Name: "), 0, 1);
-        grid.add(lname, 1, 1);
+        JFXTextField email = new JFXTextField();;
+        email.setPrefWidth(450);
+        email.setLabelFloat(true);
+        email.setPromptText("Email Address");
+        grid.add(email, 0, 2);
         
-        TextField email = new TextField();
-        email.setPrefWidth(280);
-        email.setPromptText("Email");
-        
-        grid.add(new Label("Email: "), 0, 2);
-        grid.add(email, 1, 2);
-        
-        TextField cell = new TextField();
-        cell.setPrefWidth(280);
+        JFXTextField cell = new JFXTextField();
+        cell.setPrefWidth(450);
+        cell.setLabelFloat(true);
         cell.setPromptText("Cell Phone");
+        grid.add(cell, 0, 3);
         
-        grid.add(new Label("Cell Phone: "), 0, 3);
-        grid.add(cell, 1, 3);
-        
-        TextField occupation = new TextField();
-        occupation.setPrefWidth(280);
+        JFXTextField occupation = new JFXTextField();
+        occupation.setPrefWidth(450);
+        occupation.setLabelFloat(true);
         occupation.setPromptText("Occupation");
-        
-        grid.add(new Label("Occupation: "), 0, 4);
-        grid.add(occupation, 1, 4);
+        grid.add(occupation, 0, 4);
         
         HBox gendr = new HBox(10);
         gendr.setPadding(new Insets(3, 0, 3, 0));
-        RadioButton male = new RadioButton("Male");
-        RadioButton female = new RadioButton("Female");
+        JFXRadioButton male = new JFXRadioButton("Male");
+        JFXRadioButton female = new JFXRadioButton("Female");
         
         ToggleGroup tg = new ToggleGroup();
         male.setToggleGroup(tg);
@@ -92,31 +91,27 @@ public class UpdatePatient extends Stage{
         gendr.getChildren().addAll(male, female);
         gendr.setAlignment(Pos.CENTER_LEFT);
         
-        grid.add(new Label("Gender: "), 0, 5);
-        grid.add(gendr, 1, 5);
+        grid.add(gendr, 0, 5);
         
-        TextArea postal = new TextArea();
-        postal.setPrefRowCount(3);
-        postal.setPrefWidth(280);
+        JFXTextArea postal = new JFXTextArea();
+        postal.setPrefRowCount(4);
+        postal.setPrefWidth(450);
+        postal.setLabelFloat(true);
         postal.setPromptText("Postal Address");
-        
-        grid.add(new Label("Postal Address: "), 0, 6);
-        grid.add(postal, 1, 6);
+        grid.add(postal, 0, 6);
         
         
-        TextArea physical = new TextArea();
-        physical.setPrefRowCount(3);
-        physical.setPrefWidth(280);
+        JFXTextArea physical = new JFXTextArea();
+        physical.setPrefRowCount(4);
+        physical.setPrefWidth(450);
+        physical.setLabelFloat(true);
         physical.setPromptText("Phyical Address");
-        
-        grid.add(new Label("Phyical Address: "), 0, 7);
-        grid.add(physical, 1, 7);
+        grid.add(physical, 0, 7);
         
         root.setCenter(grid);
         
-        
-        Button save = new Button("Save Changes");
-        save.getStyleClass().add("custom-button");
+        Button save = new JFXButton("Save Changes");
+        save.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
         save.setOnAction((ActionEvent event) -> {
             
             if(patient != null){ //-- Update --
@@ -204,14 +199,14 @@ public class UpdatePatient extends Stage{
            
         });
         
-        Button cancel = new Button("Exit Window");
-        cancel.getStyleClass().add("custom-button");
+        Button cancel = new JFXButton("Close");
+        cancel.getStyleClass().addAll("btn", "btn-danger", "btn-sm");
         cancel.setOnAction((ActionEvent event) -> {
             close();
         });
         
         HBox ctrl = new HBox(10);
-        ctrl.getStyleClass().add("toolbar");
+        ctrl.getStyleClass().add("tool-bar");
         ctrl.setAlignment(Pos.CENTER_RIGHT);
         ctrl.setPadding(new Insets(5, 0, 5, 0));
         
@@ -234,10 +229,9 @@ public class UpdatePatient extends Stage{
             
             if(patient.getGender().equalsIgnoreCase("male")){ male.setSelected(true);}
             else{ female.setSelected(true);}
-            
         }
         
-        Scene scene = new Scene(root, 550, 380);
+        Scene scene = new Scene(root, 550, 500);
         scene.getStylesheets().add(MainUI.class.getResource("res/style.css").toExternalForm());
         
         //-- set stage icon --

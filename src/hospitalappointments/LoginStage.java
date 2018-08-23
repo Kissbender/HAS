@@ -27,7 +27,7 @@ public class LoginStage extends Application {
         stage.getIcons().add(new Image(LoginStage.class.getResourceAsStream("res/clinic.png")));
         
         //-- set stage title --
-        stage.setTitle("H-A-S Login");
+        stage.setTitle("BITRI Hospital");
         
         //-- Disable screen resizing --
         stage.setResizable(false);

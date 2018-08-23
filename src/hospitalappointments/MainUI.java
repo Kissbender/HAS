@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospitalappointments;
 
 import javafx.scene.Scene;
@@ -51,7 +47,7 @@ public class MainUI extends Stage {
         appointments.setClosable(false);
         
         //-- set graphics on tabs --
-        ImageView dashboard_icon = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/patient.png")));
+        ImageView dashboard_icon = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/dashboard.png")));
         dashboard_icon.setFitHeight(38);
         dashboard_icon.setPreserveRatio(true);
         dashboard.setGraphic(dashboard_icon);
@@ -77,12 +73,13 @@ public class MainUI extends Stage {
         dashboard.setContent(dashboardUI);
                 
         //-- Create a scene with a desired initial width and height --
-        Scene scene = new Scene(root, 800, 500);
-        scene.getStylesheets().add(MainUI.class.getResource("res/style.css").toExternalForm());
+        Scene scene = new Scene(root, 1100, 550);
+        scene.getStylesheets().addAll(MainUI.class.getResource("res/style.css").toExternalForm(),
+                                      MainUI.class.getResource("res/bootstrapfx.css").toExternalForm());
         
         //-- set stage icon --
         getIcons().add(new Image(LoginStage.class.getResourceAsStream("res/clinic.png")));
-        setTitle("Livingstone Hospital");
+        setTitle("BITRI Hospital");
         setScene(scene);
         show();
     }

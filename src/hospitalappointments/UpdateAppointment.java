@@ -1,5 +1,10 @@
 package hospitalappointments;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextArea;
 import static hospitalappointments.DoctorAppointments.getDoctorNames;
 import static hospitalappointments.DoctorAppointments.updateDoctorAppointment;
 import javafx.event.ActionEvent;
@@ -8,11 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -32,47 +33,46 @@ public class UpdateAppointment extends Stage{
         BorderPane root = new BorderPane();
         
         GridPane grid = new GridPane();
-        grid.getStyleClass().add("form");
-        grid.setVgap(5);
+        grid.setStyle("-fx-padding: 20");
+        grid.setAlignment(Pos.CENTER);
+        grid.setVgap(20);
         grid.setHgap(5);
         
-        ComboBox<String> patientName = new ComboBox<>(MainUI.connector.getPatientNames());
-        patientName.setPrefWidth(280);
+        JFXComboBox<String> patientName = new JFXComboBox(MainUI.connector.getPatientNames());
+        patientName.setPromptText("Patient Name");
+        patientName.setLabelFloat(true);
+        patientName.setPrefWidth(400);
+        grid.add(patientName, 0, 0);
         
-        grid.add(new Label("Patient Name"), 0, 0);
-        grid.add(patientName, 1, 0);
-        
-        ComboBox<String> doctor = new ComboBox<>(getDoctorNames());
+        JFXComboBox<String> doctor = new JFXComboBox<>(getDoctorNames());
         doctor.setValue(doctor.getItems().get(0));
-        doctor.setPrefWidth(280);
+        doctor.setLabelFloat(true);
+        doctor.setPromptText("Doctors");
+        doctor.setPrefWidth(400);
+        grid.add(doctor, 0, 1);
         
-        grid.add(new Label("Doctor Name"), 0, 1);
-        grid.add(doctor, 1, 1);
+        JFXDatePicker date = new JFXDatePicker();
+        date.setPromptText("Appointment date");
+        date.setPrefWidth(380);
+        grid.add(date, 0, 2);
         
-        DatePicker date = new DatePicker();
-        date.setPrefWidth(280);
-        
-        grid.add(new Label("Appointment Date"), 0, 2);
-        grid.add(date, 1, 2);
-        
-        TextArea description = new TextArea();
-        description.setPrefWidth(280);
-        
-        grid.add(new Label("Description"), 0, 3);
-        grid.add(description, 1, 3);
+        JFXTextArea description = new JFXTextArea();
+        description.setPrefRowCount(4);
+        description.setPrefWidth(400);
+        description.setLabelFloat(true);
+        description.setPromptText("Appointment Description");
+        grid.add(description, 0, 3);
         
         root.setCenter(grid);
         
         HBox status = new HBox(10);
         
+        status.setPadding(new Insets(5, 0, 5, 0));
+        JFXRadioButton cancelled = new JFXRadioButton("Cancelled");
+        RadioButton closed = new JFXRadioButton("Closed");
+        RadioButton open = new JFXRadioButton("Open");
         
-        status.setPadding(new Insets(3, 0, 3, 0));
-        RadioButton cancelled = new RadioButton("Cancelled");
-        RadioButton closed = new RadioButton("Closed");
-        RadioButton open = new RadioButton("Open");
-        
-        grid.add(new Label("Status"), 0, 4);
-        grid.add(status, 1, 4);
+        grid.add(status, 0, 4);
         
         ToggleGroup tg = new ToggleGroup();
         cancelled.setToggleGroup(tg);
@@ -84,8 +84,8 @@ public class UpdateAppointment extends Stage{
         status.getChildren().addAll(cancelled, closed, open);
         status.setAlignment(Pos.CENTER_LEFT);
         
-        Button save = new Button("Save Changes");
-        save.getStyleClass().add("custom-button");
+        Button save = new JFXButton("Save Changes");
+        save.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
         save.setOnAction((ActionEvent event) -> {
             
             String appontmentStatus = "";
@@ -173,19 +173,19 @@ public class UpdateAppointment extends Stage{
            
         });
         
-        Button cancel = new Button("Exit Window");
-        cancel.getStyleClass().add("custom-button");
+        Button cancel = new JFXButton("Close");
+        cancel.getStyleClass().addAll("btn", "btn-danger", "btn-sm");
         cancel.setOnAction((ActionEvent event) -> {
             close();
         });
         
         HBox ctrl = new HBox(10);
-        ctrl.getStyleClass().add("toolbar");
+        ctrl.getStyleClass().add("tool-bar");
         ctrl.setAlignment(Pos.CENTER_RIGHT);
         ctrl.setPadding(new Insets(5, 0, 5, 0));
         
         ctrl.getChildren().addAll(cancel, save);
-        grid.add(ctrl, 0, 8, 2, 1);
+        grid.add(ctrl, 0, 5, 2, 1);
         
         
         //--- 
@@ -209,7 +209,7 @@ public class UpdateAppointment extends Stage{
             
         }
         
-        Scene scene = new Scene(root, 420, 250);
+        Scene scene = new Scene(root, 450, 320);
         scene.getStylesheets().add(MainUI.class.getResource("res/style.css").toExternalForm());
         
         //-- set stage icon --

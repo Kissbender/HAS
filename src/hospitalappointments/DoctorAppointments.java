@@ -1,5 +1,6 @@
 package hospitalappointments;
 
+import com.jfoenix.controls.JFXListView;
 import java.time.LocalDate;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -7,18 +8,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -34,42 +33,59 @@ public class DoctorAppointments extends BorderPane{
             new Doctor("20024", "Bernard", "Blue", "72353533", "3607643", "bernardblue@gmail.com", "Female", "Nephrology"),
             new Doctor("20025", "Stan", "Stenly", "72333433", "3607645", "stanstenly@gmail.com", "Female", "Neurology")        
     );
-    private static FlowPane flowPane;
+    
+    
+    private static JFXListView<VBox> appointments;
     private static Doctor selectedDoctor = null;
 
     public DoctorAppointments() {
         //-- Set the padding of the borderpane --
         setPadding(new Insets(10));
         
-        Label doctorName = new Label("");
-        doctorName.getStyleClass().add("title");
-        
         //-- Create a listview of doctors --
-        ListView<String> listView = new ListView<String>(getDoctorNames());
-        listView.getStyleClass().add("mainList");
+        JFXListView<String> listView = new JFXListView<String>();
+        listView.setItems(getDoctorNames());
+        listView.getStyleClass().add("jfx-custom-list");
         listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                doctorName.setText("Dr "+newValue);
-                
                 selectedDoctor = getDoctorByName(newValue);
-                
                 updateDoctorAppointment();
             }
         });
         
-        setLeft(listView);
+        VBox.setVgrow(listView, Priority.ALWAYS);        
+        
+        BorderPane panel = new BorderPane();
+        panel.getStyleClass().addAll("panel", "panel-info");
+        
+        Label heading = new Label("Doctors");
+        heading.getStyleClass().add("panel-title");
+        
+        HBox panelHeading = new HBox();
+        panelHeading.setAlignment(Pos.CENTER_LEFT);
+        panelHeading.getStyleClass().add("panel-heading");
+        
+        panel.setTop(panelHeading);
+        
+        VBox panelBody = new VBox(listView);
+        panelBody.getStyleClass().add("panel-body");
+        
+        panel.setCenter(panelBody);
+        panelHeading.getChildren().add(heading);
+        
+        setLeft(panel);
                 
         //-- Create toolbar --
         HBox toolbar = new HBox();
         toolbar.setSpacing(5);
-        toolbar.setAlignment(Pos.CENTER_RIGHT);
-        toolbar.getStyleClass().add("toolbar");
+        toolbar.setAlignment(Pos.CENTER_LEFT);
+        toolbar.getStyleClass().addAll("panel-default", "panel-body");
         
-        Button addAppointment = new Button("Add Appointment");
+        Button addAppointment = new Button("New Appointment");
         ImageView add = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/add.png")));
         addAppointment.setGraphic(add);
-        addAppointment.getStyleClass().add("custom-button");
+        addAppointment.getStyleClass().addAll("btn", "btn-info", "btn-sm");
         
         //-- Add button event handler --
         addAppointment.setOnAction((ActionEvent event) -> {
@@ -79,7 +95,7 @@ public class DoctorAppointments extends BorderPane{
         Button refresh = new Button("Refresh");
         ImageView ref = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/refresh.png")));
         refresh.setGraphic(ref);
-        refresh.getStyleClass().add("custom-button");
+        refresh.getStyleClass().addAll("btn", "btn-success", "btn-sm");
         refresh.setOnAction((ActionEvent event) -> {
             updateDoctorAppointment();
         });
@@ -87,7 +103,7 @@ public class DoctorAppointments extends BorderPane{
         Region space = new Region();
         HBox.setHgrow(space, Priority.ALWAYS);
                 
-        toolbar.getChildren().addAll(doctorName, space, refresh, addAppointment);
+        toolbar.getChildren().addAll(refresh, addAppointment, space);
         
         
         BorderPane center = new BorderPane();
@@ -96,17 +112,16 @@ public class DoctorAppointments extends BorderPane{
         center.setTop(toolbar);
         
         //----------------------------------------------------------------------
-        flowPane = new FlowPane(Orientation.HORIZONTAL);
-        flowPane.setVgap(20);
-        flowPane.setHgap(20);
-        flowPane.setPadding(new Insets(10));
+        appointments = new JFXListView<>();
+        appointments.setExpanded(true);
+        appointments.getStyleClass().add("jfx-app-list");
+        appointments.setDepth(2);
+        appointments.setPadding(new Insets(10));
         
-        center.setCenter(flowPane);
+        center.setCenter(appointments);
         
         setCenter(center);
-        ////////////////////////////////////////////////////////////////////////
-        
-        
+        //----------------------------------------------------------------------
         
     }
     
@@ -115,11 +130,11 @@ public class DoctorAppointments extends BorderPane{
         
         if(selectedDoctor != null){
             ObservableList<Appointment> app = MainUI.connector.getAppointmentsFor(selectedDoctor.getId());
-            flowPane.getChildren().clear();
+            appointments.getItems().clear();
 
             for(Appointment appointment: app){
 
-                flowPane.getChildren().add(new AppointmentButton(appointment));
+                appointments.getItems().add(new AppointmentContainer(appointment));
             }
         }
     }

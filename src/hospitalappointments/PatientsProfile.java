@@ -1,5 +1,6 @@
 package hospitalappointments;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -43,26 +44,26 @@ public class PatientsProfile extends BorderPane{
         toolbar.getStyleClass().add("toolbar");
         setTop(toolbar);
         
-        Button addPatient = new Button("Add Patient");
+        JFXButton addPatient = new JFXButton("Add Patient");
         ImageView add = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/add.png")));
         addPatient.setGraphic(add);
-        addPatient.getStyleClass().add("custom-button");
+        addPatient.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
         
         //-- Add button event handler --
         addPatient.setOnAction((ActionEvent event) -> {
             new UpdatePatient(null);
         });
         
-        Button refresh = new Button("Refresh");
+        JFXButton refresh = new JFXButton("Refresh");
         ImageView ref = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/refresh.png")));
         refresh.setGraphic(ref);
-        refresh.getStyleClass().add("custom-button");
+        refresh.getStyleClass().addAll("btn", "btn-success", "btn-sm");
         refresh.setOnAction((ActionEvent event) -> {
             ps.restart();
         });
         
         Label precords = new Label("Patients Record");
-        precords.setStyle("-fx-font-size: 16px;");
+        precords.setStyle("-fx-font-size: 18px; -fx-text-fill:#607D8B");
         
         Region space = new Region();
         HBox.setHgrow(space, Priority.ALWAYS);
@@ -98,7 +99,7 @@ public class PatientsProfile extends BorderPane{
         gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         
         TableColumn control = new TableColumn("");
-        control.setMinWidth(70);
+        control.setMinWidth(100);
         control.setCellValueFactory(new PropertyValueFactory<>("id"));
         control.setCellFactory(new Callback<TableColumn<String, String>, TableCell<String, String>>() {
             @Override 
@@ -109,8 +110,9 @@ public class PatientsProfile extends BorderPane{
                     public void updateItem(final String ID, boolean empty) {
                         super.updateItem(ID, empty);
                         if(!empty){
-                            Button edit = new Button("Edit");
-                            edit.getStyleClass().add("custom-button");
+                            Button edit = new JFXButton("Edit");
+                            edit.setPrefWidth(30);
+                            edit.getStyleClass().addAll("btn", "btn-info", "btn-xs");
                             edit.setOnAction(new EventHandler<ActionEvent>() {
                                 @Override
                                 public void handle(ActionEvent event) {
@@ -127,10 +129,6 @@ public class PatientsProfile extends BorderPane{
         });
         
         patientTableView.getColumns().addAll(id, fname, sname, email, cell, gender, control);
-        
-        /*patientTableView.setItems(FXCollections.observableArrayList(new Patient("100", "Ofentse", "Jabari", "72177941", "jabariofentse@gmail.com", "Male", "", "", "Associate Researcher"),
-                    new Patient("200", "Tshepo", "Moile", "73664462", "cranemoile@gmail.com", "Male", "", "", "Technician")));
-        */
         
         patientTableView.itemsProperty().bind(ps.valueProperty());
         
