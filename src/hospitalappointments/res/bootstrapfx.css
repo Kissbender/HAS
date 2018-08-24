@@ -1,5 +1,6 @@
 
 
+
 * {
   /*-fx-font-family: 'sans-serif';*/
 }
@@ -1329,12 +1330,12 @@ a.badge:hover, a.badge:focused {
   -fx-border-width: 1px;
   -fx-border-style: solid;
   -fx-border-color: transparent;
-  -fx-border-radius: 0px;
+  -fx-border-radius: 4px;
   -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.05), 1px, 0, 0, 1px);
 }
 
 .panel-body {
-  -fx-padding: 5px;
+  -fx-padding: 15px;
 }
 
 .panel-heading {
@@ -1342,11 +1343,11 @@ a.badge:hover, a.badge:focused {
   -fx-border-width: 1px;
   -fx-border-style: solid;
   -fx-border-color: transparent;
-  -fx-border-radius: 0px, 0, 0, 0;
+  -fx-border-radius: 3px, 0, 0, 0;
 }
 
 .panel-title {
-  -fx-font-size: 18px;
+  -fx-font-size: 14px;
   -fx-font-family:"Oxygen Regular";
 }
 
@@ -1378,17 +1379,13 @@ a.badge:hover, a.badge:focused {
   -fx-background-color: #333333;
 }
 
-
-
-
-
 .panel-primary {
   -fx-border-color: #337ab7;
 }
 .panel-primary > .panel-heading {
   -fx-text-fill: #fff;
   -fx-fill: #fff;
-  -fx-background-color: #337ab7;
+  -fx-background-color: linear-gradient(to bottom, #337ab7 0px, #2b669a 100%);
   -fx-border-color: #337ab7;
 }
 .panel-primary > .panel-heading .label {
@@ -1401,17 +1398,13 @@ a.badge:hover, a.badge:focused {
   -fx-background-color: #fff;
 }
 
-
-
-
-
 .panel-success {
   -fx-border-color: #d6e9c6;
 }
 .panel-success > .panel-heading {
   -fx-text-fill: #3c763d;
   -fx-fill: #3c763d;
-  -fx-background-color: #dff0d8;
+  -fx-background-color: linear-gradient(to bottom, #dff0d8 0px, #c8e5bc 100%);
   -fx-border-color: #d6e9c6;
 }
 .panel-success > .panel-heading .label {
@@ -1424,34 +1417,24 @@ a.badge:hover, a.badge:focused {
   -fx-background-color: #3c763d;
 }
 
-
-
-
-
-
-
 .panel-info {
-  -fx-border-color: #00cccc;
+  -fx-border-color: #bce8f1;
 }
 .panel-info > .panel-heading {
-  -fx-text-fill: #ffffff;
-  -fx-fill: #ffffff;
-  -fx-background-color: #00cccc;
-  -fx-border-color: #00cccc;
+  -fx-text-fill: #31708f;
+  -fx-fill: #31708f;
+  -fx-background-color: linear-gradient(to bottom, #d9edf7 0px, #b9def0 100%);
+  -fx-border-color: #bce8f1;
 }
 .panel-info > .panel-heading .label {
-  -fx-text-fill: #ffffff;
-  -fx-fill: #ffffff;
+  -fx-text-fill: #31708f;
+  -fx-fill: #31708f;
 }
 .panel-info > .panel-heading .badge {
   -fx-text-fill: #d9edf7;
   -fx-fill: #d9edf7;
   -fx-background-color: #31708f;
 }
-
-
-
-
 
 .panel-warning {
   -fx-border-color: #faebcc;

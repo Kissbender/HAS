@@ -85,7 +85,7 @@ public class UpdateAppointment extends Stage{
         status.setAlignment(Pos.CENTER_LEFT);
         
         Button save = new JFXButton("Save Changes");
-        save.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
+        save.getStyleClass().addAll("btn", "btn-success", "btn-sm");
         save.setOnAction((ActionEvent event) -> {
             
             String appontmentStatus = "";
@@ -138,7 +138,7 @@ public class UpdateAppointment extends Stage{
                     Appointment app = new Appointment("",
                             MainUI.connector.getPatientByName(patientName.getValue().trim()).getId(),
                             DoctorAppointments.getDoctorByName(doctor.getValue()).getId(),
-                            description.getText().trim(), date.getValue().toString(),
+                            date.getValue().toString(), description.getText().trim(),
                             appontmentStatus);
                   
                   
@@ -174,7 +174,7 @@ public class UpdateAppointment extends Stage{
         });
         
         Button cancel = new JFXButton("Close");
-        cancel.getStyleClass().addAll("btn", "btn-danger", "btn-sm");
+        cancel.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
         cancel.setOnAction((ActionEvent event) -> {
             close();
         });
@@ -215,7 +215,7 @@ public class UpdateAppointment extends Stage{
         //-- set stage icon --
         getIcons().add(new Image(LoginStage.class.getResourceAsStream("res/clinic.png")));
         setScene(scene);
-        setResizable(false);
+        //setResizable(false);
         initModality(Modality.APPLICATION_MODAL);
         show();
     }

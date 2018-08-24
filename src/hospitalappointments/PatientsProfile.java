@@ -41,13 +41,13 @@ public class PatientsProfile extends BorderPane{
         HBox toolbar = new HBox();
         toolbar.setSpacing(5);
         toolbar.setAlignment(Pos.CENTER_RIGHT);
-        toolbar.getStyleClass().add("toolbar");
+        toolbar.getStyleClass().addAll("panel-success", "panel-body");
         setTop(toolbar);
         
         JFXButton addPatient = new JFXButton("Add Patient");
         ImageView add = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/add.png")));
         addPatient.setGraphic(add);
-        addPatient.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
+        addPatient.getStyleClass().addAll("btn", "btn-primary", "btn-xs");
         
         //-- Add button event handler --
         addPatient.setOnAction((ActionEvent event) -> {
@@ -57,18 +57,15 @@ public class PatientsProfile extends BorderPane{
         JFXButton refresh = new JFXButton("Refresh");
         ImageView ref = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/refresh.png")));
         refresh.setGraphic(ref);
-        refresh.getStyleClass().addAll("btn", "btn-success", "btn-sm");
+        refresh.getStyleClass().addAll("btn", "btn-success", "btn-xs");
         refresh.setOnAction((ActionEvent event) -> {
             ps.restart();
         });
         
-        Label precords = new Label("Patients Record");
-        precords.setStyle("-fx-font-size: 18px; -fx-text-fill:#607D8B");
-        
         Region space = new Region();
         HBox.setHgrow(space, Priority.ALWAYS);
                 
-        toolbar.getChildren().addAll(precords, space, refresh, addPatient);
+        toolbar.getChildren().addAll(refresh, addPatient, space);
         
         
         //------ Patient table -------------------------------------------------
@@ -133,7 +130,6 @@ public class PatientsProfile extends BorderPane{
         patientTableView.itemsProperty().bind(ps.valueProperty());
         
         setCenter(patientTableView);
-        
         
         ps.start();
         ps.restart();

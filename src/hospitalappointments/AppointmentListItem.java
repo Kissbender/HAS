@@ -17,9 +17,9 @@ import javafx.scene.layout.VBox;
  * @author Ofentse Jabari and Tshepo Moile
  * Create for demonstration purposes only.
  */
-public class AppointmentContainer extends VBox{
+public class AppointmentListItem extends VBox{
 
-    public AppointmentContainer(Appointment appointment) {
+    public AppointmentListItem(Appointment appointment) {
         
         setSpacing(2);
         

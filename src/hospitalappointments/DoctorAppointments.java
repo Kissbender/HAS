@@ -25,20 +25,23 @@ import javafx.scene.layout.VBox;
  */
 public class DoctorAppointments extends BorderPane{
     
+    
+    //-- To be populated with data from the database --
     public static ObservableList<Doctor> doctors = FXCollections.observableArrayList(
-            new Doctor("20020", "Steven", "Crap", "72177941", "3607642", "stevecrap@gmail.com", "Male", "Haematology"),
-            new Doctor("20021", "Modise", "Kemelo", "72353533", "3607640", "kemelomd@gmail.com", "Male", "Cardeology"),
-            new Doctor("20022", "Tefo", "Bontsokwane", "72453433", "3607641", "tbontsokwane@gmail.com", "Male", "Gastroenterology"),
-            new Doctor("20023", "Michael", "Gray", "72353533", "3607644", "micgray@gmail.com", "Male", "Microbiology"),
-            new Doctor("20024", "Bernard", "Blue", "72353533", "3607643", "bernardblue@gmail.com", "Female", "Nephrology"),
-            new Doctor("20025", "Stan", "Stenly", "72333433", "3607645", "stanstenly@gmail.com", "Female", "Neurology")        
+        new Doctor("20020", "Steven", "Crap", "72177941", "3607642", "stevecrap@gmail.com", "Male", "Haematology"),
+        new Doctor("20021", "Modise", "Kemelo", "72353533", "3607640", "kemelomd@gmail.com", "Male", "Cardeology"),
+        new Doctor("20022", "Tefo", "Bontsokwane", "72453433", "3607641", "tbontsokwane@gmail.com", "Male", "Gastroenterology"),
+        new Doctor("20023", "Michael", "Gray", "72353533", "3607644", "micgray@gmail.com", "Male", "Microbiology"),
+        new Doctor("20024", "Bernard", "Blue", "72353533", "3607643", "bernardblue@gmail.com", "Female", "Nephrology"),
+        new Doctor("20025", "Stan", "Stenly", "72333433", "3607645", "stanstenly@gmail.com", "Female", "Neurology")        
     );
     
     
     private static JFXListView<VBox> appointments;
     private static Doctor selectedDoctor = null;
 
-    public DoctorAppointments() {
+    public DoctorAppointments(){
+        
         //-- Set the padding of the borderpane --
         setPadding(new Insets(10));
         
@@ -85,7 +88,7 @@ public class DoctorAppointments extends BorderPane{
         Button addAppointment = new Button("New Appointment");
         ImageView add = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/add.png")));
         addAppointment.setGraphic(add);
-        addAppointment.getStyleClass().addAll("btn", "btn-info", "btn-sm");
+        addAppointment.getStyleClass().addAll("btn", "btn-success", "btn-xs");
         
         //-- Add button event handler --
         addAppointment.setOnAction((ActionEvent event) -> {
@@ -95,7 +98,7 @@ public class DoctorAppointments extends BorderPane{
         Button refresh = new Button("Refresh");
         ImageView ref = new ImageView(new Image(LoginStage.class.getResourceAsStream("res/refresh.png")));
         refresh.setGraphic(ref);
-        refresh.getStyleClass().addAll("btn", "btn-success", "btn-sm");
+        refresh.getStyleClass().addAll("btn", "btn-primary", "btn-xs");
         refresh.setOnAction((ActionEvent event) -> {
             updateDoctorAppointment();
         });
@@ -103,8 +106,7 @@ public class DoctorAppointments extends BorderPane{
         Region space = new Region();
         HBox.setHgrow(space, Priority.ALWAYS);
                 
-        toolbar.getChildren().addAll(refresh, addAppointment, space);
-        
+        toolbar.getChildren().addAll(addAppointment, refresh, space);
         
         BorderPane center = new BorderPane();
         center.setStyle("-fx-padding: 0 5 0 5");
@@ -134,7 +136,7 @@ public class DoctorAppointments extends BorderPane{
 
             for(Appointment appointment: app){
 
-                appointments.getItems().add(new AppointmentContainer(appointment));
+                appointments.getItems().add(new AppointmentListItem(appointment));
             }
         }
     }

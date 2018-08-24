@@ -31,13 +31,13 @@ public class MainUI extends Stage {
         //-- create and add tabs to tabpane --
         
         Tab dashboard = new Tab("Dashboard");
-        dashboard.getStyleClass().add("dashboard");
+        //dashboard.getStyleClass().add("dashboard");
         
         Tab patients = new Tab("Patients Profile");
-        patients.getStyleClass().add("profile");
+        //patients.getStyleClass().add("profile");
         
         Tab appointments = new Tab("Appointments");
-        appointments.getStyleClass().add("appointments");
+        //appointments.getStyleClass().add("appointments");
         
         tabpane.getTabs().addAll(dashboard, patients, appointments);
         
@@ -74,8 +74,7 @@ public class MainUI extends Stage {
                 
         //-- Create a scene with a desired initial width and height --
         Scene scene = new Scene(root, 1100, 550);
-        scene.getStylesheets().addAll(MainUI.class.getResource("res/style.css").toExternalForm(),
-                                      MainUI.class.getResource("res/bootstrapfx.css").toExternalForm());
+        scene.getStylesheets().addAll(MainUI.class.getResource("res/style.css").toExternalForm());
         
         //-- set stage icon --
         getIcons().add(new Image(LoginStage.class.getResourceAsStream("res/clinic.png")));

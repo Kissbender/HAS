@@ -111,7 +111,7 @@ public class UpdatePatient extends Stage{
         root.setCenter(grid);
         
         Button save = new JFXButton("Save Changes");
-        save.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
+        save.getStyleClass().addAll("btn", "btn-success", "btn-sm");
         save.setOnAction((ActionEvent event) -> {
             
             if(patient != null){ //-- Update --
@@ -200,7 +200,7 @@ public class UpdatePatient extends Stage{
         });
         
         Button cancel = new JFXButton("Close");
-        cancel.getStyleClass().addAll("btn", "btn-danger", "btn-sm");
+        cancel.getStyleClass().addAll("btn", "btn-primary", "btn-sm");
         cancel.setOnAction((ActionEvent event) -> {
             close();
         });

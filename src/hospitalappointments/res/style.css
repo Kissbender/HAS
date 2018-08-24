@@ -2,9 +2,9 @@
 .root {
     -fx-font-family: "Roboto Medium";
     
-    P_DARK: #006064;
-    PRIMARY: #00838F;
-    P_LIGHT: #00BCD4;
+    P_DARK: #0E5486;
+    PRIMARY: #1565C0;
+    P_LIGHT: #2196F3;
 }
 
 .login-window{
@@ -31,6 +31,10 @@ JFX Default Tab pane
 .tab-pane .tab-header-background {
     -fx-padding: 0;
     -fx-background-color: P_DARK;
+    
+    -fx-background-image:url("hs3.jpg");
+    -fx-background-position: right center;
+    -fx-background-repeat: no-repeat;
 }
 
 .tab-pane .tab-label  {
@@ -97,8 +101,6 @@ Bootstrap button
   -fx-cursor: wait;
   -fx-opacity: 0.65;
 }
-
-
 
 .btn-default {
   -fx-text-fill: #333;
@@ -586,17 +588,17 @@ Custom Panel
 
 
 .panel-info {
-  -fx-border-color: #00cccc;
+  -fx-border-color: #bce8f1;
 }
 .panel-info > .panel-heading {
-  -fx-text-fill: #ffffff;
-  -fx-fill: #ffffff;
-  -fx-background-color: #00cccc;
-  -fx-border-color: #00cccc;
+  -fx-text-fill: #31708f;
+  -fx-fill: #31708f;
+  -fx-background-color: linear-gradient(to bottom, #d9edf7 0px, #b9def0 100%);
+  -fx-border-color: #bce8f1;
 }
 .panel-info > .panel-heading .label {
-  -fx-text-fill: #ffffff;
-  -fx-fill: #ffffff;
+  -fx-text-fill: #31708f;
+  -fx-fill: #31708f;
 }
 .panel-info > .panel-heading .badge {
   -fx-text-fill: #d9edf7;
@@ -681,15 +683,15 @@ List view
     -fx-padding:8 2 8 4;
     
     -fx-font-size: 13;
-    -fx-text-fill: #222222;
+    -fx-text-fill: #37474F;
 }
 
 
 .jfx-custom-list .jfx-list-cell:hover{
     -fx-cursor: hand;
-    -fx-background-color: #26C6DA;
-    -fx-border-color: #00838F;
-    -fx-text-fill:#ffffff;
+    -fx-background-color: #B3E5FC;
+    -fx-border-color: #03A9F4;
+    -fx-text-fill:#222222;
 }
 
 
@@ -699,9 +701,9 @@ List view
 
 
 .jfx-custom-list .jfx-list-cell:selected {
-    -fx-background-color: #26C6DA;
-    -fx-border-color: #00838F;
-    -fx-text-fill:#ffffff;
+    -fx-background-color: #B3E5FC;
+    -fx-border-color: #03A9F4;
+    -fx-text-fill:#222222;
 }
 
 /*******************************************************************************
